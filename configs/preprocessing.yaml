@@ -1,0 +1,36 @@
+# Cleaning and standardization rules. Every exclusion is logged with its reason;
+# rows are never dropped silently. Interim files keep all rows plus quality flags.
+
+chunk_size: 200000
+
+ratings:
+  valid_values: [1.0, 2.0, 3.0, 4.0, 5.0]
+
+timestamps:
+  unit: ms
+  # Amazon Reviews 2023 documents reviews from May 1996 to Sep 2023.
+  # Values outside this window are flagged invalid rather than corrected.
+  min_utc: "1995-01-01T00:00:00Z"
+  max_utc: "2023-12-31T23:59:59Z"
+
+duplicates:
+  # exact: every raw source field identical (first occurrence by file order is kept)
+  # key:   same (user_id, item_id, timestamp) with possibly different content
+  exact_fields: all_raw_fields
+  key_fields: [user_id, item_id, timestamp_ms_raw]
+
+exclusions:
+  missing_user_id: true
+  missing_item_id: true
+  invalid_rating: true
+  invalid_timestamp: true
+  exact_duplicate: true
+  key_duplicate: true
+  # Empty text is still a valid rating interaction; text-based models must handle it.
+  empty_text: false
+
+# Not applied during preprocessing. Interaction-count filtering interacts with the split
+# policy and is decided in docs/experimental_protocol.md.
+k_core:
+  apply_in_preprocessing: false
+  audit_k: 5

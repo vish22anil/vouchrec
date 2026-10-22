@@ -1,0 +1,253 @@
+{
+  "manifest": {
+    "simulation_timestamp_utc": "2026-10-21T11:00:48.965059+00:00",
+    "config_hash": "aab71673",
+    "strategy": "bandwagon",
+    "objective": "push",
+    "target_item": "P006",
+    "attack_budget_fraction": 0.05,
+    "real_users_count": 8,
+    "synthetic_users_count": 1,
+    "real_interactions_count": 32,
+    "synthetic_interactions_count": 4,
+    "total_attacked_interactions": 36,
+    "burst_window_hours": 48.0,
+    "seed": 20261021,
+    "config": {
+      "strategy": "bandwagon",
+      "objective": "push",
+      "attack_budget_fraction": 0.05,
+      "filler_size": 3,
+      "target_item": null,
+      "target_selection": "least_popular",
+      "bandwagon_items_count": 2,
+      "burst_window_hours": 48.0,
+      "burst_start_timestamp": null,
+      "generate_text": true,
+      "seed": 20261021,
+      "valid_ratings": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ]
+    }
+  },
+  "saved_paths": {
+    "attacked_train": "C:\\VouchRecData\\data\\attack_simulations\\Musical_Instruments\\p6_bandwagon_push_aab71673\\attacked_train.parquet",
+    "synthetic_reviews": "C:\\VouchRecData\\data\\attack_simulations\\Musical_Instruments\\p6_bandwagon_push_aab71673\\synthetic_reviews.parquet",
+    "ground_truth_labels": "C:\\VouchRecData\\data\\attack_simulations\\Musical_Instruments\\p6_bandwagon_push_aab71673\\ground_truth_labels.parquet",
+    "manifest": "C:\\VouchRecData\\data\\attack_simulations\\Musical_Instruments\\p6_bandwagon_push_aab71673\\attack_manifest.json"
+  },
+  "governor_config": {
+    "enabled": true,
+    "max_rank_jump": 0,
+    "min_evidence_reviews": 2,
+    "min_low_trust_reviews": 2,
+    "low_trust_threshold": 0.6,
+    "suspicious_ratio_threshold": 0.4
+  },
+  "governor_stats": {
+    "Vanilla_LightGCN": {
+      "enabled": false,
+      "total_evaluated": 17,
+      "total_adjusted": 0,
+      "percentage_adjusted": 0.0,
+      "total_jumps_capped": 0,
+      "reason_code_counts": {
+        "GOV_DISABLED": 17
+      }
+    },
+    "TrustGated_LightGCN_Ungoverned": {
+      "enabled": false,
+      "total_evaluated": 17,
+      "total_adjusted": 0,
+      "percentage_adjusted": 0.0,
+      "total_jumps_capped": 0,
+      "reason_code_counts": {
+        "GOV_DISABLED": 17
+      }
+    },
+    "TrustGated_LightGCN_Governed": {
+      "enabled": true,
+      "max_rank_jump": 0,
+      "min_evidence_reviews": 2,
+      "total_evaluated": 17,
+      "total_adjusted": 6,
+      "percentage_adjusted": 35.29,
+      "total_jumps_capped": 6,
+      "reason_code_counts": {
+        "GOV_RANK_JUMP_CAPPED": 6,
+        "GOV_PASS_UNMODIFIED": 11
+      }
+    },
+    "Vanilla_LightGCN_Governed": {
+      "enabled": true,
+      "max_rank_jump": 0,
+      "min_evidence_reviews": 2,
+      "total_evaluated": 17,
+      "total_adjusted": 6,
+      "percentage_adjusted": 35.29,
+      "total_jumps_capped": 6,
+      "reason_code_counts": {
+        "GOV_RANK_JUMP_CAPPED": 6,
+        "GOV_PASS_UNMODIFIED": 11
+      }
+    }
+  },
+  "reports": [
+    {
+      "model_name": "Vanilla_LightGCN",
+      "clean_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.9077324383928644,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.9077324383928644,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "attacked_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.6076691395183482,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.6076691395183482,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "target_impact": {
+        "target_hitrate_at_10_clean": 0.5,
+        "target_hitrate_at_10_attacked": 0.5,
+        "target_hitrate_delta": 0.0,
+        "target_mean_rank_clean": 7.25,
+        "target_mean_rank_attacked": 6.75,
+        "target_rank_improvement": 0.5
+      },
+      "detection_metrics": {
+        "mean_trust_real_reviews": 0.7517,
+        "mean_trust_synthetic_reviews": 0.7463,
+        "trust_separation_delta": 0.0055,
+        "synthetic_reviews_evaluated": 4.0,
+        "real_reviews_evaluated": 32.0,
+        "trust_detection_roc_auc": 0.5781
+      },
+      "runtime_seconds": 0.36267518997192383
+    },
+    {
+      "model_name": "TrustGated_LightGCN_Ungoverned",
+      "clean_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.8154648767857289,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.8154648767857289,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "attacked_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.6404015779112127,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.6404015779112127,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "target_impact": {
+        "target_hitrate_at_10_clean": 0.5,
+        "target_hitrate_at_10_attacked": 0.5,
+        "target_hitrate_delta": 0.0,
+        "target_mean_rank_clean": 7.25,
+        "target_mean_rank_attacked": 6.75,
+        "target_rank_improvement": 0.5
+      },
+      "detection_metrics": {
+        "mean_trust_real_reviews": 0.7517,
+        "mean_trust_synthetic_reviews": 0.7463,
+        "trust_separation_delta": 0.0055,
+        "synthetic_reviews_evaluated": 4.0,
+        "real_reviews_evaluated": 32.0,
+        "trust_detection_roc_auc": 0.5781
+      },
+      "runtime_seconds": 0.4951343536376953
+    },
+    {
+      "model_name": "TrustGated_LightGCN_Governed",
+      "clean_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.8154648767857289,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.8154648767857289,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "attacked_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.7326691395183482,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.7326691395183482,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "target_impact": {
+        "target_hitrate_at_10_clean": 0.5,
+        "target_hitrate_at_10_attacked": 0.5,
+        "target_hitrate_delta": 0.0,
+        "target_mean_rank_clean": 7.25,
+        "target_mean_rank_attacked": 6.75,
+        "target_rank_improvement": 0.5
+      },
+      "detection_metrics": {
+        "mean_trust_real_reviews": 0.7517,
+        "mean_trust_synthetic_reviews": 0.7463,
+        "trust_separation_delta": 0.0055,
+        "synthetic_reviews_evaluated": 4.0,
+        "real_reviews_evaluated": 32.0,
+        "trust_detection_roc_auc": 0.5781
+      },
+      "runtime_seconds": 0.45818281173706055
+    },
+    {
+      "model_name": "Vanilla_LightGCN_Governed",
+      "clean_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.9077324383928644,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.9077324383928644,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "attacked_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.6404015779112127,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.6404015779112127,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "target_impact": {
+        "target_hitrate_at_10_clean": 0.5,
+        "target_hitrate_at_10_attacked": 0.5,
+        "target_hitrate_delta": 0.0,
+        "target_mean_rank_clean": 7.25,
+        "target_mean_rank_attacked": 6.75,
+        "target_rank_improvement": 0.5
+      },
+      "detection_metrics": {
+        "mean_trust_real_reviews": 0.7517,
+        "mean_trust_synthetic_reviews": 0.7463,
+        "trust_separation_delta": 0.0055,
+        "synthetic_reviews_evaluated": 4.0,
+        "real_reviews_evaluated": 32.0,
+        "trust_detection_roc_auc": 0.5781
+      },
+      "runtime_seconds": 0.28361988067626953
+    }
+  ]
+}

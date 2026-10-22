@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments and secrets
+.venv/
+venv/
+node_modules/
+frontend/node_modules/
+.env
+*.key
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Data: never commit records. Keep directory READMEs and placeholders.
+# Aggregate reports (JSON/CSV/Markdown without review records) are tracked.
+data/**
+!data/**/
+!data/**/README.md
+!data/**/.gitkeep
+!data/reports/**/*.md
+!data/reports/**/*.json
+!data/reports/**/*.csv
+
+# Model artifacts and large outputs
+*.parquet
+*.jsonl
+*.jsonl.gz
+*.pt
+*.ckpt
+*.npy
+*.npz
+results/**/*.parquet

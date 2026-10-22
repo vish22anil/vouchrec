@@ -1,0 +1,20 @@
+{
+  "summary_stats": {
+    "n_reviews": 40,
+    "provisional_trust_mean": 0.7624375,
+    "provisional_trust_std": 0.05933087175956545,
+    "provisional_trust_min": 0.6499999999999999,
+    "provisional_trust_max": 0.9124999999999999,
+    "text_trust_mean": 0.6337499999999999,
+    "behavior_trust_mean": 0.6875,
+    "coordination_trust_mean": 1.0,
+    "mean_confidence": 0.76875
+  },
+  "weights": {
+    "weight_text": 0.35,
+    "weight_behavior": 0.35,
+    "weight_coordination": 0.3
+  },
+  "input_dataset": "C:\\VouchRecData\\data\\processed\\Musical_Instruments\\reviews.parquet",
+  "timestamp_utc": "2026-10-21T05:25:19.676867+00:00"
+}

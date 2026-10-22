@@ -1,0 +1,85 @@
+{
+  "timestamp_utc": "2026-10-22T18:17:15.799083+00:00",
+  "seed": 20261021,
+  "split_info": {
+    "split_method": "global_temporal",
+    "total_interactions": 40,
+    "train_interactions": 32,
+    "val_interactions": 4,
+    "test_interactions": 4,
+    "val_cutoff_timestamp": "2019-03-19 12:53:20+00:00",
+    "test_cutoff_timestamp": "2019-05-27 23:33:20+00:00",
+    "train_unique_users": 8,
+    "train_unique_items": 8,
+    "val_users_in_train": 4,
+    "test_users_in_train": 4,
+    "val_items_in_train": 2,
+    "test_items_in_train": 4,
+    "timestamp_utc": "2026-10-21T04:51:03.375181+00:00"
+  },
+  "cutoffs": [
+    10,
+    20
+  ],
+  "models": {
+    "Popularity": {
+      "config": {
+        "enabled": true
+      },
+      "metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.7654015779112127,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.7654015779112127,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0,
+        "eval_users_count": 4.0,
+        "test_users_total": 4.0
+      }
+    },
+    "BPR_MF": {
+      "config": {
+        "enabled": true,
+        "embedding_dim": 64,
+        "learning_rate": 0.001,
+        "l2_reg": 0.0001,
+        "epochs": 100,
+        "batch_size": 4096
+      },
+      "metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.6731340163040771,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.6731340163040771,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0,
+        "eval_users_count": 4.0,
+        "test_users_total": 4.0
+      }
+    },
+    "LightGCN": {
+      "config": {
+        "enabled": true,
+        "embedding_dim": 64,
+        "num_layers": 3,
+        "learning_rate": 0.001,
+        "l2_reg": 0.0001,
+        "epochs": 200,
+        "batch_size": 4096
+      },
+      "metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.6577324383928644,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.6577324383928644,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0,
+        "eval_users_count": 4.0,
+        "test_users_total": 4.0
+      }
+    }
+  }
+}

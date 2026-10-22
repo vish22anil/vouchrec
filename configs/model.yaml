@@ -1,0 +1,35 @@
+# Model settings. Not used by any code yet: recommenders and trust scoring are later-stage
+# modules. Values are initial candidates to be fixed in docs/experimental_protocol.md
+# before any training run.
+
+seed: 20261021
+
+recommenders:
+  popularity:
+    enabled: true
+  bpr_mf:
+    enabled: true
+    embedding_dim: 64
+    learning_rate: 0.001
+    l2_reg: 1.0e-4
+    epochs: 100
+    batch_size: 4096
+  lightgcn:
+    enabled: true
+    embedding_dim: 64
+    num_layers: 3
+    learning_rate: 0.001
+    l2_reg: 1.0e-4
+    epochs: 200
+    batch_size: 4096
+
+trust:
+  # Candidate signals; each must be computable from information available at inference time.
+  # Ground-truth attack labels are never inputs.
+  signals: [verified_purchase, reviewer_history, text_detector_score, burst_score]
+  aggregation: weighted_mean
+  gate_threshold: null  # chosen on validation data only
+
+governance:
+  # Exposure governance constrains how much ranking exposure low-trust items can receive.
+  max_low_trust_exposure_share: null

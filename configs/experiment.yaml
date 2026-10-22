@@ -1,0 +1,30 @@
+# Experiment protocol settings. create_splits.py refuses to run until
+# split_protocol.status is "approved" (see docs/experimental_protocol.md).
+
+seed: 20261021
+
+split_protocol:
+  status: draft  # draft | approved
+  # global_temporal: one time cutoff for all users (closest to deployment, no future leakage)
+  # leave_last_out:  per-user last interaction for test (common, but leaks global time)
+  method: global_temporal
+  validation_fraction: 0.1
+  test_fraction: 0.1
+  leave_last_out_min_interactions: 3
+  tie_break_column: source_row
+
+evaluation:
+  cutoffs: [10, 20]
+  metrics: [recall, ndcg, hit_rate]
+  candidate_set: full_ranking  # sampled metrics are biased (Krichene & Rendle, 2020)
+
+attacks:
+  # Controlled simulated attacks; generated labels stay in data/attack_simulations/.
+  target_item_selection: null
+  attack_budget_fraction: [0.01, 0.03, 0.05]
+  injection_split: train_only
+
+significance:
+  test: paired_bootstrap
+  n_resamples: 1000
+  alpha: 0.05

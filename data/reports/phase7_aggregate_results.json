@@ -1,0 +1,816 @@
+{
+  "manifest": {
+    "timestamp_utc": "2026-10-21T17:03:46.825017+00:00",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "packages": {
+      "torch": "2.14.1+cpu",
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "pyarrow": "26.0.0"
+    },
+    "dataset_split_fingerprints": {
+      "train.parquet": "2cfddbf579635e1697a25a2a75025fef8795cc0aeeaa421f77deffdb184b8217",
+      "val.parquet": "2a6149b646e94e5c927ad556d1ab3cc13254eade691a4c3f20e15d63a9ad1084",
+      "test.parquet": "a411698282be8d15745af6c36fc7a074c9345863ace5d5a03ecf0ce88f80a5b1"
+    },
+    "memory_profiling": {
+      "current_bytes": 72394298,
+      "peak_bytes": 72531760,
+      "peak_mb": 69.17
+    },
+    "total_runtime_seconds": 84.16,
+    "total_runs_completed": 74
+  },
+  "model_aggregates": {
+    "Popularity": {
+      "model_name": "Popularity",
+      "n_seeds": 5,
+      "clean_ndcg_at_10": {
+        "mean": 0.7654,
+        "std": 0.0,
+        "ci_lower": 0.7654,
+        "ci_upper": 0.7654,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_ndcg_at_10": {
+        "mean": 0.7589,
+        "std": 0.0146,
+        "ci_lower": 0.7407,
+        "ci_upper": 0.777,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "ndcg_delta": {
+        "mean": -0.0065,
+        "std": 0.0146,
+        "ci_lower": -0.0247,
+        "ci_upper": 0.0116,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "clean_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_hr_attacked": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci_lower": 0.5,
+        "ci_upper": 0.5,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_mean_rank_attacked": {
+        "mean": 7.45,
+        "std": 0.2739,
+        "ci_lower": 7.11,
+        "ci_upper": 7.79,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_rank_shift": {
+        "mean": 0.3,
+        "std": 0.2739,
+        "ci_lower": -0.04,
+        "ci_upper": 0.64,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "gov_jumps_capped": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "runtime_seconds": {
+        "mean": 0.1044,
+        "std": 0.0522,
+        "ci_lower": 0.0396,
+        "ci_upper": 0.1692,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      }
+    },
+    "BPR_MF": {
+      "model_name": "BPR_MF",
+      "n_seeds": 5,
+      "clean_ndcg_at_10": {
+        "mean": 0.7223,
+        "std": 0.0552,
+        "ci_lower": 0.6537,
+        "ci_upper": 0.7909,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_ndcg_at_10": {
+        "mean": 0.6785,
+        "std": 0.0901,
+        "ci_lower": 0.5667,
+        "ci_upper": 0.7903,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "ndcg_delta": {
+        "mean": -0.0439,
+        "std": 0.0428,
+        "ci_lower": -0.097,
+        "ci_upper": 0.0093,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "clean_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_hr_attacked": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci_lower": 0.5,
+        "ci_upper": 0.5,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_mean_rank_attacked": {
+        "mean": 6.9,
+        "std": 0.285,
+        "ci_lower": 6.5461,
+        "ci_upper": 7.2539,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_rank_shift": {
+        "mean": 0.25,
+        "std": 0.5,
+        "ci_lower": -0.3708,
+        "ci_upper": 0.8708,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "gov_jumps_capped": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "runtime_seconds": {
+        "mean": 0.4454,
+        "std": 0.2599,
+        "ci_lower": 0.1227,
+        "ci_upper": 0.7681,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      }
+    },
+    "Vanilla_LightGCN": {
+      "model_name": "Vanilla_LightGCN",
+      "n_seeds": 5,
+      "clean_ndcg_at_10": {
+        "mean": 0.642,
+        "std": 0.145,
+        "ci_lower": 0.4619,
+        "ci_upper": 0.8221,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_ndcg_at_10": {
+        "mean": 0.5485,
+        "std": 0.0197,
+        "ci_lower": 0.5241,
+        "ci_upper": 0.5729,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "ndcg_delta": {
+        "mean": -0.0934,
+        "std": 0.1536,
+        "ci_lower": -0.2842,
+        "ci_upper": 0.0973,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "clean_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_hr_attacked": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci_lower": 0.5,
+        "ci_upper": 0.5,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_mean_rank_attacked": {
+        "mean": 6.85,
+        "std": 0.3791,
+        "ci_lower": 6.3792,
+        "ci_upper": 7.3208,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_rank_shift": {
+        "mean": 0.5,
+        "std": 0.4677,
+        "ci_lower": -0.0807,
+        "ci_upper": 1.0807,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "gov_jumps_capped": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "runtime_seconds": {
+        "mean": 0.4562,
+        "std": 0.2558,
+        "ci_lower": 0.1386,
+        "ci_upper": 0.7738,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      }
+    },
+    "HardFiltered_LightGCN": {
+      "model_name": "HardFiltered_LightGCN",
+      "n_seeds": 5,
+      "clean_ndcg_at_10": {
+        "mean": 0.642,
+        "std": 0.145,
+        "ci_lower": 0.4619,
+        "ci_upper": 0.8221,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_ndcg_at_10": {
+        "mean": 0.5485,
+        "std": 0.0197,
+        "ci_lower": 0.5241,
+        "ci_upper": 0.5729,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "ndcg_delta": {
+        "mean": -0.0934,
+        "std": 0.1536,
+        "ci_lower": -0.2842,
+        "ci_upper": 0.0973,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "clean_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_hr_attacked": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci_lower": 0.5,
+        "ci_upper": 0.5,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_mean_rank_attacked": {
+        "mean": 6.85,
+        "std": 0.3791,
+        "ci_lower": 6.3792,
+        "ci_upper": 7.3208,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_rank_shift": {
+        "mean": 0.5,
+        "std": 0.4677,
+        "ci_lower": -0.0807,
+        "ci_upper": 1.0807,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "gov_jumps_capped": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "runtime_seconds": {
+        "mean": 0.8608,
+        "std": 0.5474,
+        "ci_lower": 0.1811,
+        "ci_upper": 1.5405,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      }
+    },
+    "TrustGated_LightGCN_SoftLinear": {
+      "model_name": "TrustGated_LightGCN_SoftLinear",
+      "n_seeds": 5,
+      "clean_ndcg_at_10": {
+        "mean": 0.6135,
+        "std": 0.136,
+        "ci_lower": 0.4447,
+        "ci_upper": 0.7823,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_ndcg_at_10": {
+        "mean": 0.557,
+        "std": 0.0467,
+        "ci_lower": 0.4989,
+        "ci_upper": 0.615,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "ndcg_delta": {
+        "mean": -0.0566,
+        "std": 0.1758,
+        "ci_lower": -0.2748,
+        "ci_upper": 0.1617,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "clean_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_hr_attacked": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci_lower": 0.5,
+        "ci_upper": 0.5,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_mean_rank_attacked": {
+        "mean": 6.75,
+        "std": 0.3062,
+        "ci_lower": 6.3698,
+        "ci_upper": 7.1302,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_rank_shift": {
+        "mean": 0.5,
+        "std": 0.4677,
+        "ci_lower": -0.0807,
+        "ci_upper": 1.0807,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "gov_jumps_capped": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "runtime_seconds": {
+        "mean": 1.3984,
+        "std": 1.1754,
+        "ci_lower": -0.0611,
+        "ci_upper": 2.8579,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      }
+    },
+    "TrustGated_LightGCN_SoftPower": {
+      "model_name": "TrustGated_LightGCN_SoftPower",
+      "n_seeds": 5,
+      "clean_ndcg_at_10": {
+        "mean": 0.6051,
+        "std": 0.1087,
+        "ci_lower": 0.4701,
+        "ci_upper": 0.74,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_ndcg_at_10": {
+        "mean": 0.5469,
+        "std": 0.0487,
+        "ci_lower": 0.4865,
+        "ci_upper": 0.6074,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "ndcg_delta": {
+        "mean": -0.0581,
+        "std": 0.15,
+        "ci_lower": -0.2444,
+        "ci_upper": 0.1282,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "clean_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_hr_attacked": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci_lower": 0.5,
+        "ci_upper": 0.5,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_mean_rank_attacked": {
+        "mean": 6.65,
+        "std": 0.2236,
+        "ci_lower": 6.3724,
+        "ci_upper": 6.9276,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_rank_shift": {
+        "mean": 0.5,
+        "std": 0.4677,
+        "ci_lower": -0.0807,
+        "ci_upper": 1.0807,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "gov_jumps_capped": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "runtime_seconds": {
+        "mean": 1.4038,
+        "std": 1.2773,
+        "ci_lower": -0.1822,
+        "ci_upper": 2.9898,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      }
+    },
+    "TrustGated_LightGCN_Governed": {
+      "model_name": "TrustGated_LightGCN_Governed",
+      "n_seeds": 5,
+      "clean_ndcg_at_10": {
+        "mean": 0.6135,
+        "std": 0.136,
+        "ci_lower": 0.4447,
+        "ci_upper": 0.7823,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_ndcg_at_10": {
+        "mean": 0.5635,
+        "std": 0.0344,
+        "ci_lower": 0.5208,
+        "ci_upper": 0.6062,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "ndcg_delta": {
+        "mean": -0.05,
+        "std": 0.1531,
+        "ci_lower": -0.2401,
+        "ci_upper": 0.1401,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "clean_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_hr_attacked": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci_lower": 0.5,
+        "ci_upper": 0.5,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_mean_rank_attacked": {
+        "mean": 6.95,
+        "std": 0.2739,
+        "ci_lower": 6.61,
+        "ci_upper": 7.29,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_rank_shift": {
+        "mean": 0.3,
+        "std": 0.2092,
+        "ci_lower": 0.0403,
+        "ci_upper": 0.5597,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "gov_jumps_capped": {
+        "mean": 5.0,
+        "std": 0.7071,
+        "ci_lower": 4.122,
+        "ci_upper": 5.878,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "runtime_seconds": {
+        "mean": 1.3312,
+        "std": 1.0272,
+        "ci_lower": 0.0558,
+        "ci_upper": 2.6066,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      }
+    },
+    "Vanilla_LightGCN_Governed": {
+      "model_name": "Vanilla_LightGCN_Governed",
+      "n_seeds": 5,
+      "clean_ndcg_at_10": {
+        "mean": 0.642,
+        "std": 0.145,
+        "ci_lower": 0.4619,
+        "ci_upper": 0.8221,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_ndcg_at_10": {
+        "mean": 0.5616,
+        "std": 0.027,
+        "ci_lower": 0.5281,
+        "ci_upper": 0.5951,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "ndcg_delta": {
+        "mean": -0.0804,
+        "std": 0.1189,
+        "ci_lower": -0.228,
+        "ci_upper": 0.0673,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "clean_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "attacked_recall_at_20": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_hr_attacked": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci_lower": 0.5,
+        "ci_upper": 0.5,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_mean_rank_attacked": {
+        "mean": 7.0,
+        "std": 0.3536,
+        "ci_lower": 6.561,
+        "ci_upper": 7.439,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "target_rank_shift": {
+        "mean": 0.35,
+        "std": 0.2236,
+        "ci_lower": 0.0724,
+        "ci_upper": 0.6276,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "gov_jumps_capped": {
+        "mean": 4.8,
+        "std": 0.4472,
+        "ci_lower": 4.2447,
+        "ci_upper": 5.3553,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      },
+      "runtime_seconds": {
+        "mean": 0.5926,
+        "std": 0.2912,
+        "ci_lower": 0.231,
+        "ci_upper": 0.9542,
+        "confidence_level": 0.95,
+        "n_samples": 5
+      }
+    }
+  },
+  "statistical_tests": [
+    {
+      "condition_a": "TrustGated_LightGCN_Governed",
+      "condition_b": "Vanilla_LightGCN",
+      "metric_name": "attacked_ndcg_at_10",
+      "n_pairs": 5,
+      "mean_a": 0.5635,
+      "mean_b": 0.5485,
+      "mean_diff": 0.015,
+      "std_diff": 0.0467,
+      "t_statistic": 0.7178,
+      "p_value": 0.512563,
+      "cohens_d": 0.321,
+      "is_significant": false,
+      "alpha": 0.05,
+      "holm_rank": 3,
+      "holm_threshold": 0.0125,
+      "adjusted_p_value": 1.0,
+      "is_significant_holm": false
+    },
+    {
+      "condition_a": "TrustGated_LightGCN_Governed",
+      "condition_b": "TrustGated_LightGCN_SoftLinear",
+      "metric_name": "attacked_ndcg_at_10",
+      "n_pairs": 5,
+      "mean_a": 0.5635,
+      "mean_b": 0.557,
+      "mean_diff": 0.0065,
+      "std_diff": 0.0274,
+      "t_statistic": 0.5322,
+      "p_value": 0.622782,
+      "cohens_d": 0.238,
+      "is_significant": false,
+      "alpha": 0.05,
+      "holm_rank": 4,
+      "holm_threshold": 0.01667,
+      "adjusted_p_value": 1.0,
+      "is_significant_holm": false
+    },
+    {
+      "condition_a": "TrustGated_LightGCN_Governed",
+      "condition_b": "BPR_MF",
+      "metric_name": "attacked_ndcg_at_10",
+      "n_pairs": 5,
+      "mean_a": 0.5635,
+      "mean_b": 0.6785,
+      "mean_diff": -0.115,
+      "std_diff": 0.1037,
+      "t_statistic": -2.4792,
+      "p_value": 0.0682662,
+      "cohens_d": -1.1088,
+      "is_significant": false,
+      "alpha": 0.05,
+      "holm_rank": 2,
+      "holm_threshold": 0.01,
+      "adjusted_p_value": 0.341331,
+      "is_significant_holm": false
+    },
+    {
+      "condition_a": "TrustGated_LightGCN_Governed",
+      "condition_b": "Popularity",
+      "metric_name": "attacked_ndcg_at_10",
+      "n_pairs": 5,
+      "mean_a": 0.5635,
+      "mean_b": 0.7589,
+      "mean_diff": -0.1954,
+      "std_diff": 0.049,
+      "t_statistic": -8.9133,
+      "p_value": 0.000875793,
+      "cohens_d": -3.9862,
+      "is_significant": true,
+      "alpha": 0.05,
+      "holm_rank": 1,
+      "holm_threshold": 0.00833,
+      "adjusted_p_value": 0.00525476,
+      "is_significant_holm": true
+    },
+    {
+      "condition_a": "TrustGated_LightGCN_SoftLinear",
+      "condition_b": "Vanilla_LightGCN",
+      "metric_name": "attacked_ndcg_at_10",
+      "n_pairs": 5,
+      "mean_a": 0.557,
+      "mean_b": 0.5485,
+      "mean_diff": 0.0085,
+      "std_diff": 0.0488,
+      "t_statistic": 0.3876,
+      "p_value": 0.718081,
+      "cohens_d": 0.1733,
+      "is_significant": false,
+      "alpha": 0.05,
+      "holm_rank": 5,
+      "holm_threshold": 0.025,
+      "adjusted_p_value": 1.0,
+      "is_significant_holm": false
+    },
+    {
+      "condition_a": "TrustGated_LightGCN_SoftLinear",
+      "condition_b": "HardFiltered_LightGCN",
+      "metric_name": "attacked_ndcg_at_10",
+      "n_pairs": 5,
+      "mean_a": 0.557,
+      "mean_b": 0.5485,
+      "mean_diff": 0.0085,
+      "std_diff": 0.0488,
+      "t_statistic": 0.3876,
+      "p_value": 0.718081,
+      "cohens_d": 0.1733,
+      "is_significant": false,
+      "alpha": 0.05,
+      "holm_rank": 6,
+      "holm_threshold": 0.05,
+      "adjusted_p_value": 0.718081,
+      "is_significant_holm": false
+    }
+  ]
+}
