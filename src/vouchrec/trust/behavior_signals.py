@@ -193,6 +193,15 @@ class ReviewerBehaviorScorer:
                 score += self.verified_purchase_bonus
                 reasons.append("BEHAVIOR_HIGH_VERIFIED_PURCHASE")
 
+            # Unverified rapid burst: rapid submissions by an unverified account with no longitudinal history
+            if (
+                row["history_count"] >= 3
+                and row["verified_purchase_ratio"] == 0.0
+                and row["activity_span_days"] < 1.0
+            ):
+                score -= 0.15
+                reasons.append("BEHAVIOR_UNVERIFIED_BURST")
+
             clamped = float(np.clip(score, 0.0, 1.0))
             if not reasons:
                 reasons.append("BEHAVIOR_STANDARD")

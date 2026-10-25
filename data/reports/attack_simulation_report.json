@@ -1,6 +1,6 @@
 {
   "manifest": {
-    "simulation_timestamp_utc": "2026-10-21T05:41:11.745930+00:00",
+    "simulation_timestamp_utc": "2026-10-25T14:49:13.300103+00:00",
     "config_hash": "aab71673",
     "strategy": "bandwagon",
     "objective": "push",
@@ -71,11 +71,14 @@
       },
       "detection_metrics": {
         "mean_trust_real_reviews": 0.7517,
-        "mean_trust_synthetic_reviews": 0.7463,
-        "trust_separation_delta": 0.0055,
+        "mean_trust_synthetic_reviews": 0.615,
+        "trust_separation_delta": 0.1367,
         "synthetic_reviews_evaluated": 4.0,
         "real_reviews_evaluated": 32.0,
-        "trust_detection_roc_auc": 0.5781
+        "trust_detection_roc_auc": 0.9922,
+        "trust_detection_precision": 0.3636,
+        "trust_detection_recall": 1.0,
+        "trust_detection_f1": 0.5333
       },
       "runtime_seconds": 0.02
     },
@@ -92,44 +95,6 @@
       },
       "attacked_metrics": {
         "Recall@10": 1.0,
-        "NDCG@10": 0.5903382790366966,
-        "HitRate@10": 1.0,
-        "Recall@20": 1.0,
-        "NDCG@20": 0.5903382790366966,
-        "HitRate@20": 1.0,
-        "n_eval_users": 4.0
-      },
-      "target_impact": {
-        "target_hitrate_at_10_clean": 0.5,
-        "target_hitrate_at_10_attacked": 0.5,
-        "target_hitrate_delta": 0.0,
-        "target_mean_rank_clean": 6.5,
-        "target_mean_rank_attacked": 6.5,
-        "target_rank_improvement": 0.0
-      },
-      "detection_metrics": {
-        "mean_trust_real_reviews": 0.7517,
-        "mean_trust_synthetic_reviews": 0.7463,
-        "trust_separation_delta": 0.0055,
-        "synthetic_reviews_evaluated": 4.0,
-        "real_reviews_evaluated": 32.0,
-        "trust_detection_roc_auc": 0.5781
-      },
-      "runtime_seconds": 1.82
-    },
-    {
-      "model_name": "LightGCN",
-      "clean_metrics": {
-        "Recall@10": 1.0,
-        "NDCG@10": 0.9077324383928644,
-        "HitRate@10": 1.0,
-        "Recall@20": 1.0,
-        "NDCG@20": 0.9077324383928644,
-        "HitRate@20": 1.0,
-        "n_eval_users": 4.0
-      },
-      "attacked_metrics": {
-        "Recall@10": 1.0,
         "NDCG@10": 0.6076691395183482,
         "HitRate@10": 1.0,
         "Recall@20": 1.0,
@@ -141,19 +106,63 @@
         "target_hitrate_at_10_clean": 0.5,
         "target_hitrate_at_10_attacked": 0.5,
         "target_hitrate_delta": 0.0,
-        "target_mean_rank_clean": 7.75,
-        "target_mean_rank_attacked": 7.0,
+        "target_mean_rank_clean": 7.0,
+        "target_mean_rank_attacked": 6.25,
         "target_rank_improvement": 0.75
       },
       "detection_metrics": {
         "mean_trust_real_reviews": 0.7517,
-        "mean_trust_synthetic_reviews": 0.7463,
-        "trust_separation_delta": 0.0055,
+        "mean_trust_synthetic_reviews": 0.615,
+        "trust_separation_delta": 0.1367,
         "synthetic_reviews_evaluated": 4.0,
         "real_reviews_evaluated": 32.0,
-        "trust_detection_roc_auc": 0.5781
+        "trust_detection_roc_auc": 0.9922,
+        "trust_detection_precision": 0.3636,
+        "trust_detection_recall": 1.0,
+        "trust_detection_f1": 0.5333
       },
-      "runtime_seconds": 0.05
+      "runtime_seconds": 2.22
+    },
+    {
+      "model_name": "LightGCN",
+      "clean_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.8154648767857289,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.8154648767857289,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "attacked_metrics": {
+        "Recall@10": 1.0,
+        "NDCG@10": 0.5327324383928644,
+        "HitRate@10": 1.0,
+        "Recall@20": 1.0,
+        "NDCG@20": 0.5327324383928644,
+        "HitRate@20": 1.0,
+        "n_eval_users": 4.0
+      },
+      "target_impact": {
+        "target_hitrate_at_10_clean": 0.5,
+        "target_hitrate_at_10_attacked": 0.5,
+        "target_hitrate_delta": 0.0,
+        "target_mean_rank_clean": 7.25,
+        "target_mean_rank_attacked": 6.75,
+        "target_rank_improvement": 0.5
+      },
+      "detection_metrics": {
+        "mean_trust_real_reviews": 0.7517,
+        "mean_trust_synthetic_reviews": 0.615,
+        "trust_separation_delta": 0.1367,
+        "synthetic_reviews_evaluated": 4.0,
+        "real_reviews_evaluated": 32.0,
+        "trust_detection_roc_auc": 0.9922,
+        "trust_detection_precision": 0.3636,
+        "trust_detection_recall": 1.0,
+        "trust_detection_f1": 0.5333
+      },
+      "runtime_seconds": 0.08
     }
   ]
 }

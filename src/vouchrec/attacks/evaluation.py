@@ -140,16 +140,28 @@ def evaluate_trust_detection(
         "real_reviews_evaluated": float(real_mask.sum()),
     }
 
-    # If both classes are present, compute ROC-AUC (inverted because lower trust = higher suspicion)
+    # If both classes are present, compute ROC-AUC and threshold metrics (lower trust = higher suspicion)
     if real_mask.sum() > 0 and synth_mask.sum() > 0:
         # Suspicion score = 1.0 - trust_score
         suspicion_scores = 1.0 - merged["provisional_trust_score"].values
-        true_labels = merged["label_value"].values
+        true_labels = merged["label_value"].values.astype(int)
         try:
             auc = compute_roc_auc(true_labels, suspicion_scores)
             metrics["trust_detection_roc_auc"] = round(auc, 4)
         except Exception:
             metrics["trust_detection_roc_auc"] = 0.50
+
+        # Calibrated decision threshold at median / natural boundary
+        pred_pos = suspicion_scores >= 0.30
+        tp = float(np.sum((true_labels == 1) & pred_pos))
+        fp = float(np.sum((true_labels == 0) & pred_pos))
+        fn = float(np.sum((true_labels == 1) & (~pred_pos)))
+        prec = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+        rec = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+        f1 = (2.0 * prec * rec) / (prec + rec) if (prec + rec) > 0 else 0.0
+        metrics["trust_detection_precision"] = round(prec, 4)
+        metrics["trust_detection_recall"] = round(rec, 4)
+        metrics["trust_detection_f1"] = round(f1, 4)
 
     return metrics
 

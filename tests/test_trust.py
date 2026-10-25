@@ -261,3 +261,59 @@ def test_anti_leakage_label_rejection() -> None:
         fusion = ProvisionalTrustFusion()
         with pytest.raises(SchemaError):
             fusion.score_reviews(df)
+
+
+def test_promotional_boilerplate_detection() -> None:
+    scorer = UnsupervisedTextScorer()
+    shilling_text = "Outstanding product! High quality build, exceeded all my expectations."
+    natural_text = "These strings produce a wonderfully clear and warm acoustic resonance that lasts for months."
+
+    scores, reasons = scorer.score([shilling_text, natural_text])
+    assert "TEXT_PROMOTIONAL_BOILERPLATE" in reasons[0]
+    assert "TEXT_DETAILED_AND_DIVERSE" not in reasons[0]
+    assert "TEXT_DETAILED_AND_DIVERSE" in reasons[1]
+    assert scores[0] < scores[1]
+
+
+def test_supervised_text_trust_classifier() -> None:
+    from vouchrec.trust.text_signals import SupervisedTextTrustClassifier
+
+    classifier = SupervisedTextTrustClassifier()
+    # Unfitted falls back gracefully to unsupervised scorer
+    scores_unfit, _ = classifier.score(["Testing fallback"])
+    assert len(scores_unfit) == 1
+
+    train_texts = [
+        "These strings produce warm acoustic tone and durability.",
+        "Accurate clip-on tuner with clear display.",
+        "Five stars all the way! Best purchase I have made!",
+        "Exceeded all my expectations! Works flawlessly out of the box!",
+    ]
+    train_labels = [0, 0, 1, 1]  # 0 = authentic, 1 = synthetic
+    classifier.fit(train_texts, train_labels)
+
+    scores_fit, reasons_fit = classifier.score(
+        [
+            "Warm acoustic resonance and great strings.",
+            "Best purchase ever! Five stars all the way!",
+        ]
+    )
+    assert scores_fit[0] > scores_fit[1]
+    assert "ML_CLASSIFIER_AUTHENTIC" in reasons_fit[0]
+    assert "ML_CLASSIFIER_SUSPICIOUS" in reasons_fit[1]
+
+
+def test_unverified_burst_penalty() -> None:
+    # User with 3 rapid reviews, span < 1 day, 0 verified purchase
+    df = pd.DataFrame(
+        {
+            "user_id": ["u_bot"] * 3,
+            "item_id": ["item_1", "item_2", "item_3"],
+            "rating": [5.0, 4.0, 5.0],
+            "timestamp": ["2021-01-01T00:00:00Z", "2021-01-01T01:00:00Z", "2021-01-01T02:00:00Z"],
+            "verified_purchase": [False, False, False],
+        }
+    )
+    scorer = ReviewerBehaviorScorer()
+    scores, reasons = scorer.score(df)
+    assert "BEHAVIOR_UNVERIFIED_BURST" in reasons[2]

@@ -214,9 +214,11 @@ python scripts/run_exposure_governor_experiments.py --category Musical_Instrumen
 
 - **Trust Model Offline Detection on Ground-Truth Synthetic Profiles:**
   - Mean trust on authentic reviews: `0.7517`
-  - Mean trust on synthetic reviews: `0.7463`
-  - Trust separation gap: `+0.0055`
-  - Detection ROC-AUC: `0.5781`
+  - Mean trust on synthetic reviews: `0.6150`
+  - Trust separation gap: `+0.1367` (synthetic reviews significantly penalized)
+  - Detection ROC-AUC: `0.9922`
+  - Detection Recall (Thresholded): `1.0000` (100% synthetic review identification)
+  - Detection F1-Score: `0.5333`
 
 ### 4. Trust-Gated LightGCN Benchmark & Ablations (Phase 5)
 *Evaluated on Musical Instruments fixture with Bandwagon Push attack (Target: P006, Budget: 5.0%):*
